@@ -9,7 +9,8 @@ class App extends Component {
   constructor(){
     super()
     this.state ={ 
-      inventory: []
+      inventory: [],
+      editProduct: null 
     }
   }
  
@@ -25,12 +26,26 @@ axios.get('/api/inventory')
 
 }
 
+toggleEdit= (editId) =>{ 
+  this.setState({
+    editProduct: editId
+  })
+}
+
  render(){
+   console.log(this.state.editProduct)
     return (
       <div className="App">
         <Header/>
-        <Dashboard/>
-        <Form/>
+        <Dashboard 
+          inventory = {this.state.inventory} 
+          reRender = {this.reRender}
+          toggleEdit = {this.toggleEdit}
+          />
+        <Form
+         reRenderFn = {this.reRender}
+         editProduct = {this.state.editProduct}
+        />
       </div>
     );
  }

@@ -14,5 +14,18 @@ module.exports = {
 
          db.add_product([name,price, imgurl]).then(() => res.sendStatus(200));
          
+    }, 
+    deleteProduct: (req,res) => {
+        const db  = req.app.get('db'); 
+        const{id} = req.params; 
+
+        db.delete_product(id).then(data => res.sendStatus(200))
+    },
+    editProduct: (req,res) => {
+        const db =req.app.get('db'); 
+        const {id} =req.params
+        const {name,price, imgurl} = req.body; 
+
+        db.edit_product([id,name,price,imgurl]).then(()=> res.sendStatus(200));
     }
 }
