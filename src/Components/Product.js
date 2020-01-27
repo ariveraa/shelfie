@@ -6,6 +6,7 @@ class Product extends Component{
 
 
     render (){
+        console.log(this.props)
         const {name,price,imgurl,id} = this.props.productInfo;
         return(
             <div>
