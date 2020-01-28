@@ -1,12 +1,14 @@
 import React, {Component} from 'react';
-import axios from 'axios'; 
+import {withRouter} from 'react-router-dom'; 
 
 class Product extends Component{
 
-
+    edit = id => {
+        this.props.history.push(`/edit/${id}`)
+    }
 
     render (){
-        console.log(this.props)
+     
         const {name,price,imgurl,id} = this.props.productInfo;
         return(
             <div>
@@ -15,11 +17,11 @@ class Product extends Component{
                 <h3>{name}</h3>
                 <p>{price}</p>
                 <button onClick = {() => this.props.deleteFn(id)}>Delete</button>
-                <button onClick = {() => this.props.toggleEdit(this.props.productInfo)}>Edit</button>
+                <button onClick = {() => this.edit(this.props.productInfo.id)}>Edit</button>
             
             </div>
         )
     }
 }
 
-export default Product; 
+export default withRouter(Product); 

@@ -10,6 +10,7 @@ const express = require ('express'),
     app.use(express.json());
     app.use(cors());
 
+    app.get('/api/product/:id', ctrl.getProduct); 
     app.get('/api/inventory', ctrl.getProducts); 
     app.post('/api/product', ctrl.addProduct); 
     app.delete('/api/product/:id', ctrl.deleteProduct); 

@@ -6,18 +6,12 @@ import Form from './Components/Form';
  const Routes =(props) => {
     return( 
         <Switch> 
-            <Route exact path ='/' component ={Dashboard} />
+            <Route exact path ='/' component = {Dashboard} />
 
-            <Route path = '/add' render = {() => {
-                return <Form 
-                reRenderFn = {props.reRender}/>
-            }} />
 
-            <Route path = '/edit/:id'  render = {() => {
-                return <Form 
-                reRenderFn = {props.reRender} 
-                editProduct = {props.editProduct}/>
-            }} />
+            <Route path = '/add' component ={Form}/>
+
+            <Route path = '/edit/:id'  component ={Form}/> 
         </Switch>
     )
 }

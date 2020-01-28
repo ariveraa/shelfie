@@ -30,7 +30,7 @@ toggleEdit= (editId) =>{
       <div className="App">
         <Header/>
         <div> 
-          <Routes/>
+          <Routes toggleEdit = {this.toggleEdit}/>
         </div>
       </div>
     );

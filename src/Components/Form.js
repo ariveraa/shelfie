@@ -5,10 +5,11 @@ class Form extends Component{
     constructor(){
         super()
         this.state = { 
+            id: '', 
             name: '', 
             price: 0, 
             imgurl: '',
-            editProduct:null
+            editProduct:false
         }
         this.handleChange = this.handleChange.bind(this); 
         this.addProduct=this.addProduct.bind(this); 
@@ -32,12 +33,12 @@ class Form extends Component{
  
     addProduct = (name, price, imgurl) => {
         axios.post('/api/product',{name,price,imgurl}).then(() => { 
-            this.props.reRenderFn(); 
             this.setState({ 
                 name:'', 
                 price: 0, 
                 imgurl:''
             })
+            this.props.history.push('./')
         })     
     }
 
@@ -47,10 +48,28 @@ class Form extends Component{
                 name:'',
                 price:'',
                 imgurl:'',
-                editProduct:null
+                editProduct:false
             })
-            this.props.reRenderFn();
+            
         })
+        this.props.history.push('/'); 
+    }
+
+    componentDidMount(){ 
+       if(this.props.match.params.id){ 
+           axios.get(`/api/product/${this.props.match.params.id}`)
+           .then(res => {
+                this.setState({ 
+                id: res.data[0].id, 
+                name: res.data[0].name, 
+                price: res.data[0].price, 
+                imgurl: res.data[0].imgurl, 
+                editProduct: true
+                
+            })
+            }
+           )
+       }
     }
  
 
@@ -88,11 +107,11 @@ class Form extends Component{
                 onChange = {event => this.handleChange(event)} /> 
                 <section id = 'form-buttons'>
                     <button onClick ={()=> this.cancelChange()}>Cancel</button>
-                    {this.state.editProduct === null? 
+                    {this.props.editProduct === false? 
                         (<button onClick = {() => this.addProduct(name, price, imgurl)}>
                         Add to Inventory    
                         </button>): 
-                        (<button onClick = {() => this.editProduct(this.state.editProduct.id,name,price,imgurl)}>Save Changes</button>)}
+                        (<button onClick = {() => this.editProduct(this.state.id,name,price,imgurl)}>Save Changes</button>)}
                     
                 </section>
             </div>

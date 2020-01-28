@@ -8,6 +8,7 @@ class Dashboard extends Component{
         super()
         this.state = {
             inventory: [],
+            toggleEdit:null
         }
     }
 
@@ -34,7 +35,6 @@ class Dashboard extends Component{
     }
 
     render (){
-        console.log(this.state.inventory)
         return(
             <div id = 'inventory-box'>
               
@@ -44,7 +44,7 @@ class Dashboard extends Component{
                             key = {element.id}
                             productInfo ={element}
                            deleteFn = {this.delete}
-                        //    toggleEdit = {this.props.toggleEdit}
+                           toggleEdit = {this.props.toggleEdit}
                         />
                     )
                 }
