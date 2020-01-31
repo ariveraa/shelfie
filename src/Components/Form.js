@@ -27,7 +27,7 @@ class Form extends Component{
             name:'',
             price:0, 
             imgurl:'', 
-            editProduct: null
+            editProduct: false
         })
     }
  
@@ -107,7 +107,7 @@ class Form extends Component{
                 onChange = {event => this.handleChange(event)} /> 
                 <section id = 'form-buttons'>
                     <button onClick ={()=> this.cancelChange()}>Cancel</button>
-                    {this.props.editProduct === false? 
+                    {this.state.editProduct === false? 
                         (<button onClick = {() => this.addProduct(name, price, imgurl)}>
                         Add to Inventory    
                         </button>): 

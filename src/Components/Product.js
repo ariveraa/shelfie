@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {withRouter} from 'react-router-dom'; 
+import devLogo from './DevMountain.jpg'
 
 class Product extends Component{
 
@@ -11,9 +12,9 @@ class Product extends Component{
      
         const {name,price,imgurl,id} = this.props.productInfo;
         return(
-            <div>
+            <div className ='products'>
                 Product:
-                <img src= {imgurl} alt= 'https://github.com/DevMountain/simulation-1/blob/master/assets/views/part1_view.png?raw=true' />
+                <img id = 'productImg' src= {imgurl} alt= {devLogo} />
                 <h3>{name}</h3>
                 <p>{price}</p>
                 <button onClick = {() => this.props.deleteFn(id)}>Delete</button>

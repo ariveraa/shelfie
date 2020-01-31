@@ -1,8 +1,7 @@
 import React, {Component}from 'react';
-import Dashboard from './Components/Dashboard'; 
-import Form from './Components/Form'; 
+
 import Header from './Components/Header'; 
-import axios from 'axios'; 
+
 import './App.css';
 import Routes from './Routes'
 import { Route } from 'react-router-dom';
@@ -14,21 +13,12 @@ class App extends Component {
       
     }
   }
- 
-
-
-
-toggleEdit= (editId) =>{ 
-  this.setState({
-    editProduct: editId
-  })
-}
 
  render(){
   
     return (
       <div className="App">
-        <Header/>
+        <Header />
         <div> 
           <Routes toggleEdit = {this.toggleEdit}/>
         </div>

@@ -8,7 +8,6 @@ import Form from './Components/Form';
         <Switch> 
             <Route exact path ='/' component = {Dashboard} />
 
-
             <Route path = '/add' component ={Form}/>
 
             <Route path = '/edit/:id'  component ={Form}/> 
