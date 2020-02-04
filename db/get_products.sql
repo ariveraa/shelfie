@@ -1,2 +1,2 @@
 select * from products 
-order by id; 
+order by id;

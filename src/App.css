@@ -1,3 +1,8 @@
+.main{ 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .Header{
   height: 100px;
   background-color: firebrick;
@@ -35,17 +40,73 @@
 width:600px;
 height: 200px; 
 display: flex;
-flex-direction: column; 
-justify-content: center ;
+/* flex-direction: column;  */
+justify-content: start ;
 align-items: center;
-background-color: rgb(141, 43, 31);
+background-color:#d34735;
 margin: 10px;
 border-radius: 10px;
 
 }
+.product-info{
+display: flex;
+flex-direction: column;
+height: 90%; 
+width: 200px;
+margin-left: 5px;
+}
+h3{
+  margin: 5px;
+}
+.product-button-box{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 60px;
+}
+.product-buttons{
+font-size: 16px;
+background-color: #3ad887;
+border-radius: 5px;
+height:40px;
+}
 
-#productImg{
- width: 200px;
- height: 150px;
+
+#product-img{
+ width: 320px;
+ height: 90%;
+ margin-left: 15px;
+
+}
+#form { 
+  background-color:#3ad887;
+  height: 520px;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+  border-radius: 5px;
+}
+
+.form-inputs{
+  justify-content: start;
+  width: 90%;
+  margin: 5px;
+}
+.form-buttons{ 
+  background-color: #ED6B5A;
+  margin-left: 15px;
+  font-size: 16px;
+  border-radius: 7px;
+  height:30px;
+}
+p{
+  margin: 5px;
+  font-size: 20px;
+
+}
+#form-img{ 
+  width:250px;
 }
 

@@ -19,7 +19,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <div> 
+        <div className = 'main'> 
           <Routes toggleEdit = {this.toggleEdit}/>
         </div>
       </div>

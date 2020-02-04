@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios'; 
+import devLogo from './DevMountain.jpg'
 
 class Form extends Component{ 
     constructor(){
@@ -63,7 +64,7 @@ class Form extends Component{
                 id: res.data[0].id, 
                 name: res.data[0].name, 
                 price: res.data[0].price, 
-                imgurl: res.data[0].imgurl, 
+                imgurl: res.data[0].img, 
                 editProduct: true
                 
             })
@@ -88,30 +89,32 @@ class Form extends Component{
     render(){
         const {name, price, imgurl} = this.state; 
         return(
-            <div> 
-                <img/>
+            <div id= 'form'> 
+                {imgurl === ''? (<img id= 'form-img' src= {devLogo} alt = 'dev logo' />): (<img id= 'form-img' src= {imgurl} alt = 'product img'/>)}
+               <div className= 'form-inputs'> 
                 <p>Image URL:</p>
-                <input placeholder = 'Enter URL Here' 
+                <input  className = 'form-inputs' placeholder = 'Enter URL Here' 
                 name = 'imgurl' 
-                value = {imgurl} 
+                value =   {imgurl} 
                 onChange = {event => this.handleChange(event)}/>
                 <p>Product Name:</p>
-                <input placeholder= 'Enter Name Here' 
+                <input  className = 'form-inputs' placeholder= 'Enter Name Here' 
                 name = 'name' 
                 value = {name}
                 onChange = {event => this.handleChange(event)}/>
                 <p>Price:</p>
-                <input placeholder = 'Enter Price Here' 
+                <input className = 'form-inputs'  placeholder = 'Enter Price Here' 
                 name = 'price' 
                 value = {price}
                 onChange = {event => this.handleChange(event)} /> 
-                <section id = 'form-buttons'>
-                    <button onClick ={()=> this.cancelChange()}>Cancel</button>
+               </div> 
+                <section>
+                    <button className = 'form-buttons' onClick ={()=> this.cancelChange()}>Cancel</button>
                     {this.state.editProduct === false? 
-                        (<button onClick = {() => this.addProduct(name, price, imgurl)}>
+                        (<button className = 'form-buttons' onClick = {() => this.addProduct(name, price, imgurl)}>
                         Add to Inventory    
                         </button>): 
-                        (<button onClick = {() => this.editProduct(this.state.id,name,price,imgurl)}>Save Changes</button>)}
+                        (<button className = 'form-buttons' onClick = {() => this.editProduct(this.state.id,name,price,imgurl)}>Save Changes</button>)}
                     
                 </section>
             </div>
