@@ -30,6 +30,7 @@ class Form extends Component{
             imgurl:'', 
             editProduct: false
         })
+        this.props.history.push('/'); 
     }
  
     addProduct = (name, price, imgurl) => {
